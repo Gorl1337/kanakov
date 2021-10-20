@@ -3,33 +3,42 @@
 #include <math.h>
 int main()
 {
-	double a = 0, b = 0, c = 0, pi = 0, i = 0, minus = 0, plus = 0;
-	int n = 0, min = 0, max = 0, d = 0;
-	
+	double a = 0, b = 0, c = 0, p = 0, minus = 0, plus = 0;
+	int min = 0, max = 0, d = 0, n = 0, i = 0, j = 0, k = 0;
+
 	printf("Enter Min ");
 	scanf_s("%d", &min);
 
 	printf("Enter Max ");
 	scanf_s("%d", &max);
 
-	printf("Enter amount ");
+	printf("Enter the number of items ");
 	scanf_s("%d", &n);
-
-	for (;i <n ; i++)
+	
+	for (i=1; i < n+1; i++)
 	{
+		double* A = (double*)malloc(sizeof(double) * n);
+		double* B = (double*)malloc(sizeof(double) * n);
 		a = rand();
-		b = (a /RAND_MAX)*(max-min)+min;
-		
-		d = pow(10, 6) * modf(b, &pi);
-		if (d % 10 == 0)
+		b = (a / RAND_MAX) * (max - min) + min;
+		B[i] = b;
+		d = pow(10, 6) * modf(b, &p);
+		A[i] = d;
+
+		while (d % 10 == 0)
 			d = d / 10;
-		
-		if (i == d)
-			minus += b;
-		else
-			plus += b;
+
+		for (; j < i; j++)
+		{
+			if (i == A[j])
+			{
+				minus += B[j];
+				B[j] = 0;
+			}
+		}
+		plus += B[i];
 	}
 	c = plus - minus;
-	printf("Summa=%lf", c);
+	printf("Sum=%lf", c);
 	return 0;
 }
