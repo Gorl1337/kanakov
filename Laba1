@@ -15,10 +15,11 @@ int main()
 	printf("Enter the number of items ");
 	scanf_s("%d", &n);
 	
+	double* A = (double*)malloc(sizeof(double) * n);
+	double* B = (double*)malloc(sizeof(double) * n);
+	
 	for (i=1; i < n+1; i++)
 	{
-		double* A = (double*)malloc(sizeof(double) * n);
-		double* B = (double*)malloc(sizeof(double) * n);
 		a = rand();
 		b = (a / RAND_MAX) * (max - min) + min;
 		B[i] = b;
