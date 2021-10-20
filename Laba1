@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#define _CRT_SECURE_NO_WARNINGS
 int main()
 {
 	double a = 0, b = 0, c = 0, pi = 0, i = 0, minus = 0, plus = 0;
-	int n = 0, min = 4, max = 10, d = 0;
+	int n = 0, min = 0, max = 0, d = 0;
 	
 	printf("Enter Min ");
 	scanf_s("%d", &min);
@@ -20,9 +19,11 @@ int main()
 	{
 		a = rand();
 		b = (a /RAND_MAX)*(max-min)+min;
+		
 		d = pow(10, 6) * modf(b, &pi);
 		if (d % 10 == 0)
 			d = d / 10;
+		
 		if (i == d)
 			minus += b;
 		else
