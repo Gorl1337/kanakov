@@ -3,8 +3,8 @@
 #include <math.h>
 int main()
 {
-	double a = 0, b = 0, c = 0, p = 0, minus = 0, plus = 0;
-	int min = 0, max = 0, d = 0, n = 0, i = 0, j = 0, k = 0;
+	double a = 0, b = 0, c = 0, p = 0;
+	int min = 0, max = 0, d = 0, n = 0, i = 0, j = 0;
 
 	printf("Enter Min:");
 	scanf_s("%d", &min);
@@ -27,37 +27,27 @@ int main()
 		return 0;
 	}
 
-	int* A = (int*)malloc(sizeof(int) * n);
-	double* B = (double*)malloc(sizeof(double) * n);
-
-	for (i = 0; i < n - 1; i++)
+	for (i = 0; i < n; i++)
 	{
 		a = rand();
 		b = (a / RAND_MAX) * (max - min) + min;
-		B[i] = b;
 		d = pow(10, 6) * modf(b, &p);
 
-		while (d % 10 == 0)
-			d = d / 10;
-
-		A[i] = d;
-	}
-
-	for (i = 0; i < n - 1; i++)
-	{
-		for (j = 0; j < n - 1; j++)
+		while (j <= n)
 		{
-			if (i == A[j])
+			if (d <= n)
 			{
-				minus += B[i];
-				B[i] = 0;
+				c -= b;
+				break;
 			}
+			else
+			{
+				c += b;
+				break;
+			}
+			j++;
 		}
-		plus += B[i];
 	}
-
-	c = plus - minus;
 	printf("Sum=%lf", c);
-
 	return 0;
 }
