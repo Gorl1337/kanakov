@@ -33,7 +33,7 @@ int main()
 		b = (a / RAND_MAX) * (max - min) + min;
 		d = pow(10, 6) * modf(b, &p);
 
-		while (j <= n)
+		while (j < n)
 		{
 			if (d <= n)
 			{
