@@ -18,7 +18,7 @@ int main()
 		return 0;
 	}
 
-	printf("Enter the number of items:");
+	printf("Enter size:");
 	scanf_s("%d", &n);
 
 	if (n < 1)
