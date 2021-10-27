@@ -52,5 +52,9 @@ int main()
 
 
 	printf("Sum=%lf", c);
+	free(B);
+	free(D);
+	free(D1);
+	free(P);
 	return 0;
 }
