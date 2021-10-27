@@ -12,7 +12,7 @@ int main()
 	printf("Enter Max:");
 	scanf_s("%d", &max);
 
-	if (max - min < 1)
+	if (max < min)
 	{
 		printf("error");
 		return 0;
