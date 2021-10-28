@@ -26,34 +26,34 @@ int main()
 		printf("error");
 		return 0;
 	}
+
 	double* B = (double*)malloc(sizeof(double) * n);
-	double* D1 = (double*)malloc(sizeof(double) * n);
 	int* D = (int*)malloc(sizeof(int) * n);
 	int* P = (int*)malloc(sizeof(int) * n);
+
 	for (i = 0; i < n; i++)
 	{
 		a = rand();
 		b = (a / RAND_MAX) * (max - min) + min;
-		d1 = modf(abs(b), &p);
-		d = pow(10, 6) * modf(abs(b), &p);
+		d = pow(10, 6) * modf(b, &p);
+		d = abs(d);
 		B[i] = b;
 		D[i] = d;
 		P[i] = p;
-		D1[i] = d1;
 	}
-	 
+
 	for (i = 0; i < n; i++)
 	{
 		if (D[i] <= n)
 			c -= B[D[i]];
 		else
-			c += (P[i] + D1[i]);
+			c += (P[i] + (D[i] / pow(10, 6)));
 	}
 
 	printf("Sum=%lf", c);
+
 	free(B);
 	free(D);
-	free(D1);
 	free(P);
 	return 0;
 }
