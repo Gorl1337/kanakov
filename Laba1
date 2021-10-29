@@ -55,6 +55,7 @@ int main()
 		else
 		{
 			c += (P[i] + D1[i]);
+			B[i] = 0;
 		}
 	}
 
