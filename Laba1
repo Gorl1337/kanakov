@@ -3,7 +3,7 @@
 #include <math.h>
 int main()
 {
-	double a = 0, b = 0, c = 0, p = 0, d1 = 0;
+	double a = 0, b = 0, c = 0, p = 0;
 	int min = 0, max = 0, d = 0, n = 0, i = 0, j = 0;
 
 	printf("Enter Min:");
@@ -34,7 +34,6 @@ int main()
 	{
 		a = rand();
 		b = (a / RAND_MAX) * (max - min) + min;
-		d1 = modf(b, &p);
 		d = pow(10, 6) * modf(b, &p);
 		d = abs(d);
 		B[i] = b;
