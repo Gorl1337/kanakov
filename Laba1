@@ -28,9 +28,7 @@ int main()
 	}
 
 	double* B = (double*)malloc(sizeof(double) * n);
-	double* D1 = (double*)malloc(sizeof(double) * n);
 	int* D = (int*)malloc(sizeof(int) * n);
-	int* P = (int*)malloc(sizeof(int) * n);
 
 	for (i = 0; i < n; i++)
 	{
@@ -39,10 +37,8 @@ int main()
 		d1 = modf(b, &p);
 		d = pow(10, 6) * modf(b, &p);
 		d = abs(d);
-		D1[i] = d1;
 		B[i] = b;
 		D[i] = d;
-		P[i] = p;
 	}
 
 	for (i = 0; i < n; i++)
@@ -54,7 +50,7 @@ int main()
 		}
 		else
 		{
-			c += (P[i] + D1[i]);
+			c += B[i];
 			B[i] = 0;
 		}
 	}
@@ -68,7 +64,5 @@ int main()
 
 	free(B);
 	free(D);
-	free(D1);
-	free(P);
 	return 0;
 }
